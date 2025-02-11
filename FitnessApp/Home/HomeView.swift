@@ -13,9 +13,24 @@ struct HomeView: View {
     @State var calories: Int = 123
     @State var active: Int = 52
     @State var stand: Int = 8
+    
+   var mockActivities = [
+    Activity(id: 0, title: "Steps today", subtitle: "Goal 12000", image: "figure.walk", tintColor: .green, amount: "9812"),
+    Activity(id: 1, title: "Steps today", subtitle: "Goal 1000", image: "figure.walk", tintColor: .red, amount: "612"),
+    Activity(id: 2, title: "Steps today", subtitle: "Goal 12000", image: "figure.walk", tintColor: .blue, amount: "9812"),
+    Activity(id: 3, title: "Steps today", subtitle: "Goal 50000", image: "figure.run", tintColor: .purple, amount: "59812")
+   
+   
+   
+   ]
+    
+    
+    
+    
+    
     var body: some View {
         ScrollView(showsIndicators: false){
-            VStack{
+            VStack(alignment: .leading){
                 Text("Welcome")
                     .font(.largeTitle)
                     .padding()
@@ -59,10 +74,11 @@ struct HomeView: View {
                     }
                     .alignmentGuide(.leading) { _ in 0 } // Ensuring alignment consistency
                     Spacer()
+                    //This is for the progress bar
                     
                     ZStack{
                         ProgressCircleView(progress: $calories, goal: 600, color: .red)
-                            
+                        
                         ProgressCircleView(progress: $active, goal: 60, color: .green)
                             .padding(.all,20)
                         ProgressCircleView(progress: $stand, goal: 12, color: .blue)
@@ -73,12 +89,35 @@ struct HomeView: View {
                     .padding(.horizontal)
                     Spacer()
                 }
+                .padding()
+                HStack{
+                    Text("Fitness Activity")
+                        .font(.title2)
+                    Spacer()
+                    Button{
+                        print("show more")
+                    }label: {
+                        Text("show more")
+                            .padding(.all,10)      // change the padding size as it is big in general
+                            .foregroundColor(.white)  // changes text color to white
+                            .background(.blue)      // for the background of the button
+                            .cornerRadius(20)    //To round the edges of the button
+                    }
+                }
                 .padding(.horizontal)
-                
+                //Here i am using a lazyvgrid because i want to  optimize the performance when they render all a
+                //at once
+                LazyVGrid(columns: Array(repeating: GridItem(spacing:20), count: 2)) {
+                    ForEach(mockActivities,id:\.id) { activity in
+                       ActivityCard(activity: activity)
+                    }
+                }
+                    
+                }
             }
         }
     }
-}
+
 
 #Preview {
     HomeView()
