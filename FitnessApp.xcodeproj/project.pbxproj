@@ -11,6 +11,15 @@
 		A14B41AC2D5985C200E9D5DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B41AB2D5985C200E9D5DB /* ContentView.swift */; };
 		A14B41AE2D5985C300E9D5DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A14B41AD2D5985C300E9D5DB /* Assets.xcassets */; };
 		A14B41B12D5985C300E9D5DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A14B41B02D5985C300E9D5DB /* Preview Assets.xcassets */; };
+		A14B41B82D599AFD00E9D5DB /* Fitness TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B41B72D599AFD00E9D5DB /* Fitness TabView.swift */; };
+		A14B41BA2D599C8E00E9D5DB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B41B92D599C8E00E9D5DB /* HomeView.swift */; };
+		A14B41BC2D599DAB00E9D5DB /* HistoricDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B41BB2D599DAB00E9D5DB /* HistoricDataView.swift */; };
+		A14B41BE2D5B6E0200E9D5DB /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B41BD2D5B6E0200E9D5DB /* ProgressCircleView.swift */; };
+		A14B41C12D5B967D00E9D5DB /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B41C02D5B967D00E9D5DB /* ActivityCard.swift */; };
+		A14B41C32D5BFF5800E9D5DB /* WorkoutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B41C22D5BFF5800E9D5DB /* WorkoutCard.swift */; };
+		A14B41C52D5CD0F900E9D5DB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B41C42D5CD0F900E9D5DB /* HomeViewModel.swift */; };
+		A14B41CA2D5CD2B300E9D5DB /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B41C92D5CD2B300E9D5DB /* Activity.swift */; };
+		A14B41CE2D5CD30C00E9D5DB /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B41CD2D5CD30C00E9D5DB /* Workout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +28,15 @@
 		A14B41AB2D5985C200E9D5DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A14B41AD2D5985C300E9D5DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A14B41B02D5985C300E9D5DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A14B41B72D599AFD00E9D5DB /* Fitness TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fitness TabView.swift"; sourceTree = "<group>"; };
+		A14B41B92D599C8E00E9D5DB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A14B41BB2D599DAB00E9D5DB /* HistoricDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricDataView.swift; sourceTree = "<group>"; };
+		A14B41BD2D5B6E0200E9D5DB /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
+		A14B41C02D5B967D00E9D5DB /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
+		A14B41C22D5BFF5800E9D5DB /* WorkoutCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCard.swift; sourceTree = "<group>"; };
+		A14B41C42D5CD0F900E9D5DB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A14B41C92D5CD2B300E9D5DB /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		A14B41CD2D5CD30C00E9D5DB /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +69,7 @@
 		A14B41A82D5985C200E9D5DB /* FitnessApp */ = {
 			isa = PBXGroup;
 			children = (
+				A14B41BF2D5B960100E9D5DB /* Home */,
 				A14B41A92D5985C200E9D5DB /* FitnessAppApp.swift */,
 				A14B41AB2D5985C200E9D5DB /* ContentView.swift */,
 				A14B41AD2D5985C300E9D5DB /* Assets.xcassets */,
@@ -62,9 +81,49 @@
 		A14B41AF2D5985C300E9D5DB /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				A14B41B72D599AFD00E9D5DB /* Fitness TabView.swift */,
 				A14B41B02D5985C300E9D5DB /* Preview Assets.xcassets */,
+				A14B41BB2D599DAB00E9D5DB /* HistoricDataView.swift */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A14B41BF2D5B960100E9D5DB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A14B41C82D5CD22400E9D5DB /* ViewModels */,
+				A14B41C72D5CD21900E9D5DB /* Models */,
+				A14B41C62D5CD20D00E9D5DB /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A14B41C62D5CD20D00E9D5DB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A14B41C22D5BFF5800E9D5DB /* WorkoutCard.swift */,
+				A14B41C02D5B967D00E9D5DB /* ActivityCard.swift */,
+				A14B41B92D599C8E00E9D5DB /* HomeView.swift */,
+				A14B41BD2D5B6E0200E9D5DB /* ProgressCircleView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A14B41C72D5CD21900E9D5DB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A14B41C92D5CD2B300E9D5DB /* Activity.swift */,
+				A14B41CD2D5CD30C00E9D5DB /* Workout.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A14B41C82D5CD22400E9D5DB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A14B41C42D5CD0F900E9D5DB /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +196,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A14B41CA2D5CD2B300E9D5DB /* Activity.swift in Sources */,
 				A14B41AC2D5985C200E9D5DB /* ContentView.swift in Sources */,
+				A14B41C52D5CD0F900E9D5DB /* HomeViewModel.swift in Sources */,
+				A14B41C32D5BFF5800E9D5DB /* WorkoutCard.swift in Sources */,
+				A14B41BE2D5B6E0200E9D5DB /* ProgressCircleView.swift in Sources */,
+				A14B41BA2D599C8E00E9D5DB /* HomeView.swift in Sources */,
+				A14B41CE2D5CD30C00E9D5DB /* Workout.swift in Sources */,
+				A14B41BC2D599DAB00E9D5DB /* HistoricDataView.swift in Sources */,
+				A14B41B82D599AFD00E9D5DB /* Fitness TabView.swift in Sources */,
+				A14B41C12D5B967D00E9D5DB /* ActivityCard.swift in Sources */,
 				A14B41AA2D5985C200E9D5DB /* FitnessAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
