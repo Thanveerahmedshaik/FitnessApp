@@ -9,31 +9,9 @@ import SwiftUI
 
 
 
-
 struct HomeView: View {
-    @State var calories: Int = 123
-    @State var active: Int = 52
-    @State var stand: Int = 8
     
-   var mockActivities = [
-    Activity(id: 0, title: "Steps today", subtitle: "Goal 12000", image: "figure.walk", tintColor: .green, amount: "9812"),
-    Activity(id: 1, title: "Steps today", subtitle: "Goal 1000", image: "figure.walk", tintColor: .red, amount: "612"),
-    Activity(id: 2, title: "Steps today", subtitle: "Goal 12000", image: "figure.walk", tintColor: .blue, amount: "9812"),
-    Activity(id: 3, title: "Steps today", subtitle: "Goal 50000", image: "figure.run", tintColor: .purple, amount: "59812")
-   
-   
-   
-   ]
-    
-    var mockWorkouts = [
-        Workout(id: 0, title: "Running", image: "figure.run", tintcolor: .cyan, duration: "51 mins", date: "Feb 11", calories: "512 kcal"),
-        Workout(id: 1, title: "Strength Training", image: "figure.strengthtraining.traditional", tintcolor: .red, duration: "51 mins", date: "Feb 11", calories: "512 kcal"),
-        Workout(id: 2, title: "Running", image: "figure.run", tintcolor: .purple, duration: "51 mins", date: "Feb 11", calories: "512 kcal"),
-        Workout(id: 3, title: "Running", image: "figure.run", tintcolor: .cyan, duration: "51 mins", date: "Feb 11", calories: "512 kcal")
-    
-    ]
-    
-    
+    @StateObject var viewModel = HomeViewModel()  //We make sure that we add the statobject wrapper to the viewmodel nthat way our view knows that its holding an instance of the observable object(viewModel)
     
     
     var body: some View {
@@ -48,14 +26,14 @@ struct HomeView: View {
                     HStack{
                         Spacer()
                         
-                        VStack(alignment: .leading, spacing: 8){
+                        VStack(alignment:.leading){
                             VStack(alignment: .leading, spacing: 8){
                                 Text("Calories")
                                     .font(.callout)
                                     .bold()
                                     .foregroundColor(.red)
                                 
-                                Text("123 kcal")
+                                Text("\(viewModel.calories)")
                                     .bold()
                             }
                             .padding(.bottom)
@@ -66,19 +44,21 @@ struct HomeView: View {
                                     .bold()
                                     .foregroundColor(.green)
                                 
-                                Text("52 mins")
+                                Text("\(viewModel.active)")
                                     .bold()
                             }
                             .padding(.bottom)
                             
-                            VStack(alignment: .leading, spacing: 8){
-                                Text("Stand")
-                                    .font(.callout)
-                                    .bold()
-                                    .foregroundColor(.blue)
-                                
-                                Text("8 hrs")
-                                    .bold()
+                            VStack(alignment:.leading){
+                                VStack(alignment: .leading, spacing: 7){
+                                    Text("Stand")
+                                        .font(.callout)
+                                        .bold()
+                                        .foregroundColor(.blue)
+                                    
+                                    Text("\(viewModel.stand)")
+                                        .bold()
+                                }
                             }
                         }
                         .alignmentGuide(.leading) { _ in 0 } // Ensuring alignment consistency
@@ -86,11 +66,11 @@ struct HomeView: View {
                         //This is for the progress bar
                         
                         ZStack{
-                            ProgressCircleView(progress: $calories, goal: 600, color: .red)
+                            ProgressCircleView(progress: $viewModel.calories, goal: 600, color: .red)
                             
-                            ProgressCircleView(progress: $active, goal: 60, color: .green)
+                            ProgressCircleView(progress: $viewModel.active, goal: 60, color: .green)
                                 .padding(.all,20)
-                            ProgressCircleView(progress: $stand, goal: 12, color: .blue)
+                            ProgressCircleView(progress: $viewModel.stand, goal: 12, color: .blue)
                                 .padding(.all,40)
                             
                             
@@ -129,7 +109,7 @@ struct HomeView: View {
                     //Here i am using a lazyvgrid because i want to  optimize the performance when they render all a
                     //at once
                     LazyVGrid(columns: Array(repeating: GridItem(spacing:20), count: 2)) {
-                        ForEach(mockActivities,id:\.id) { activity in
+                        ForEach(viewModel.mockActivities,id:\.id) { activity in
                            ActivityCard(activity: activity)
                         }
                     }
@@ -159,7 +139,7 @@ struct HomeView: View {
                     //LazyVStack works similiar to LazyVGrid except its not a grid its a stack so everything is being stacked vertically and the data is loading lazily
                     // Recent workout section
                     LazyVStack{
-                        ForEach(mockWorkouts,id:\.id) { workout in
+                        ForEach(viewModel.mockWorkouts,id:\.id) { workout in
                             WorkoutCard(workout: workout)
                         }
                     }
@@ -173,5 +153,5 @@ struct HomeView: View {
 
 
 #Preview {
-    HomeView()
+    HomeView(viewModel: HomeViewModel())
 }

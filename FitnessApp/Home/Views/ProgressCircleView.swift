@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-import SwiftUI
+
 
 struct ProgressCircleView: View {
     @Binding var progress: Int
