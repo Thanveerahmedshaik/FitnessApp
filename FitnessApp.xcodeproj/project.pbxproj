@@ -16,6 +16,7 @@
 		A14B41BC2D599DAB00E9D5DB /* HistoricDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B41BB2D599DAB00E9D5DB /* HistoricDataView.swift */; };
 		A14B41BE2D5B6E0200E9D5DB /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B41BD2D5B6E0200E9D5DB /* ProgressCircleView.swift */; };
 		A14B41C12D5B967D00E9D5DB /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B41C02D5B967D00E9D5DB /* ActivityCard.swift */; };
+		A14B41C32D5BFF5800E9D5DB /* WorkoutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B41C22D5BFF5800E9D5DB /* WorkoutCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		A14B41BB2D599DAB00E9D5DB /* HistoricDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricDataView.swift; sourceTree = "<group>"; };
 		A14B41BD2D5B6E0200E9D5DB /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
 		A14B41C02D5B967D00E9D5DB /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
+		A14B41C22D5BFF5800E9D5DB /* WorkoutCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				A14B41B92D599C8E00E9D5DB /* HomeView.swift */,
 				A14B41C02D5B967D00E9D5DB /* ActivityCard.swift */,
 				A14B41BD2D5B6E0200E9D5DB /* ProgressCircleView.swift */,
+				A14B41C22D5BFF5800E9D5DB /* WorkoutCard.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A14B41AC2D5985C200E9D5DB /* ContentView.swift in Sources */,
+				A14B41C32D5BFF5800E9D5DB /* WorkoutCard.swift in Sources */,
 				A14B41BE2D5B6E0200E9D5DB /* ProgressCircleView.swift in Sources */,
 				A14B41BA2D599C8E00E9D5DB /* HomeView.swift in Sources */,
 				A14B41BC2D599DAB00E9D5DB /* HistoricDataView.swift in Sources */,

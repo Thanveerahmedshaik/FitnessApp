@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Fitness_TabView: View {
+struct FitnessTabView: View {
     @State var selectedTab  = "Home"
     
     init(){
@@ -37,5 +37,5 @@ struct Fitness_TabView: View {
 }
 
 #Preview {
-    Fitness_TabView()
+    FitnessTabView()
 }

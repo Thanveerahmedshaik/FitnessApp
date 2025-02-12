@@ -9,6 +9,7 @@ import SwiftUI
 
 
 
+
 struct HomeView: View {
     @State var calories: Int = 123
     @State var active: Int = 52
@@ -24,97 +25,149 @@ struct HomeView: View {
    
    ]
     
+    var mockWorkouts = [
+        Workout(id: 0, title: "Running", image: "figure.run", tintcolor: .cyan, duration: "51 mins", date: "Feb 11", calories: "512 kcal"),
+        Workout(id: 1, title: "Strength Training", image: "figure.strengthtraining.traditional", tintcolor: .red, duration: "51 mins", date: "Feb 11", calories: "512 kcal"),
+        Workout(id: 2, title: "Running", image: "figure.run", tintcolor: .purple, duration: "51 mins", date: "Feb 11", calories: "512 kcal"),
+        Workout(id: 3, title: "Running", image: "figure.run", tintcolor: .cyan, duration: "51 mins", date: "Feb 11", calories: "512 kcal")
+    
+    ]
     
     
     
     
     var body: some View {
-        ScrollView(showsIndicators: false){
-            VStack(alignment: .leading){
-                Text("Welcome")
-                    .font(.largeTitle)
-                    .padding()
-                
-                //This is for ProgressBars for calorie stepcount and standcount
-                HStack{
-                    Spacer()
+        NavigationStack {
+            ScrollView(showsIndicators: false){
+                VStack(alignment: .leading){
+                    Text("Welcome")
+                        .font(.largeTitle)
+                        .padding()
                     
-                    VStack(alignment: .leading, spacing: 8){
-                        VStack(alignment: .leading, spacing: 8){
-                            Text("Calories")
-                                .font(.callout)
-                                .bold()
-                                .foregroundColor(.red)
-                            
-                            Text("123 kcal")
-                                .bold()
-                        }
-                        .padding(.bottom)
+                    //This is for ProgressBars for calorie stepcount and standcount
+                    HStack{
+                        Spacer()
                         
                         VStack(alignment: .leading, spacing: 8){
-                            Text("Active")
-                                .font(.callout)
-                                .bold()
-                                .foregroundColor(.green)
+                            VStack(alignment: .leading, spacing: 8){
+                                Text("Calories")
+                                    .font(.callout)
+                                    .bold()
+                                    .foregroundColor(.red)
+                                
+                                Text("123 kcal")
+                                    .bold()
+                            }
+                            .padding(.bottom)
                             
-                            Text("52 mins")
-                                .bold()
+                            VStack(alignment: .leading, spacing: 8){
+                                Text("Active")
+                                    .font(.callout)
+                                    .bold()
+                                    .foregroundColor(.green)
+                                
+                                Text("52 mins")
+                                    .bold()
+                            }
+                            .padding(.bottom)
+                            
+                            VStack(alignment: .leading, spacing: 8){
+                                Text("Stand")
+                                    .font(.callout)
+                                    .bold()
+                                    .foregroundColor(.blue)
+                                
+                                Text("8 hrs")
+                                    .bold()
+                            }
                         }
-                        .padding(.bottom)
+                        .alignmentGuide(.leading) { _ in 0 } // Ensuring alignment consistency
+                        Spacer()
+                        //This is for the progress bar
                         
-                        VStack(alignment: .leading, spacing: 8){
-                            Text("Stand")
-                                .font(.callout)
-                                .bold()
-                                .foregroundColor(.blue)
+                        ZStack{
+                            ProgressCircleView(progress: $calories, goal: 600, color: .red)
                             
-                            Text("8 hrs")
-                                .bold()
+                            ProgressCircleView(progress: $active, goal: 60, color: .green)
+                                .padding(.all,20)
+                            ProgressCircleView(progress: $stand, goal: 12, color: .blue)
+                                .padding(.all,40)
+                            
+                            
                         }
+                        .padding(.horizontal)
+                        Spacer()
                     }
-                    .alignmentGuide(.leading) { _ in 0 } // Ensuring alignment consistency
-                    Spacer()
-                    //This is for the progress bar
+                    .padding()
                     
-                    ZStack{
-                        ProgressCircleView(progress: $calories, goal: 600, color: .red)
+                    
+                    HStack{
+                        Text("Fitness Activity")
+                            .font(.title2)
                         
-                        ProgressCircleView(progress: $active, goal: 60, color: .green)
-                            .padding(.all,20)
-                        ProgressCircleView(progress: $stand, goal: 12, color: .blue)
-                            .padding(.all,40)
+                        Spacer()
                         
+                        Button{
+                            print("show more")
+                        }label: {
+                            Text("show more")
+                                .padding(.all,10)      // change the padding size as it is big in general
+                                .foregroundColor(.white)  // changes text color to white
+                                .background(.blue)      // for the background of the button
+                                .cornerRadius(20)    //To round the edges of the button
+                        }
                         
                     }
                     .padding(.horizontal)
-                    Spacer()
-                }
-                .padding()
-                HStack{
-                    Text("Fitness Activity")
-                        .font(.title2)
-                    Spacer()
-                    Button{
-                        print("show more")
-                    }label: {
-                        Text("show more")
-                            .padding(.all,10)      // change the padding size as it is big in general
-                            .foregroundColor(.white)  // changes text color to white
-                            .background(.blue)      // for the background of the button
-                            .cornerRadius(20)    //To round the edges of the button
+                    .padding(.top)
+                        
+                        
+                        
+                        
+                        
+                   
+                    //Here i am using a lazyvgrid because i want to  optimize the performance when they render all a
+                    //at once
+                    LazyVGrid(columns: Array(repeating: GridItem(spacing:20), count: 2)) {
+                        ForEach(mockActivities,id:\.id) { activity in
+                           ActivityCard(activity: activity)
+                        }
                     }
-                }
-                .padding(.horizontal)
-                //Here i am using a lazyvgrid because i want to  optimize the performance when they render all a
-                //at once
-                LazyVGrid(columns: Array(repeating: GridItem(spacing:20), count: 2)) {
-                    ForEach(mockActivities,id:\.id) { activity in
-                       ActivityCard(activity: activity)
-                    }
-                }
+                    .padding(.horizontal)
                     
-                }
+                    HStack{
+                        Text("Recent Workouts")
+                            .font(.title2)
+                        
+                        Spacer()
+                       //NavigationLink helps to navigate to a screen with a list of all workouts
+                        
+                        NavigationLink{
+                            EmptyView()
+                        }label: {
+                            Text("show more")
+                                .padding(.all,10)      // change the padding size as it is big in general
+                                .foregroundColor(.white)  // changes text color to white
+                                .background(.blue)      // for the background of the button
+                                .cornerRadius(20)    //To round the edges of the button
+                        }
+                        
+                    }
+                    .padding(.horizontal)
+                    
+
+                    //LazyVStack works similiar to LazyVGrid except its not a grid its a stack so everything is being stacked vertically and the data is loading lazily
+                    // Recent workout section
+                    LazyVStack{
+                        ForEach(mockWorkouts,id:\.id) { workout in
+                            WorkoutCard(workout: workout)
+                        }
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                    }
             }
+        }
         }
     }
 
